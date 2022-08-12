@@ -1,3 +1,26 @@
-更新远程仓库到本地当前branch：
+(1)更新远程仓库到本地当前branch：
 git pull --rebase 远程仓库简称 远程仓库分支名
 git push -f 便于后续push到远程仓库
+
+(2)(1)中"git pull --rebase 远程仓库简称 远程仓库分支名"命令遇到错误：
+error: The following untracked working tree files would be overwritten by merge
+解决方案:
+git clean -d -fx
+
+(3)修改上一次commit内容(在git log中只会看到一条commit记录,无需-m给本次commit添加注释):
+git commit --amend --no-edit
+git push -f
+
+(4)git pull --rebase遇到冲突：
+解决冲突
+git add .
+git rebase --continue
+
+(5)pull request之后，本地需要将log与主线log更新至一致(方便后续)：
+git log 查看本地与主线在哪个commit id一致
+git reset --hard (commit id)
+git pull --rebase 远程仓库简称 远程仓库分支名
+git push -f
+
+(6)退出git log状态：
+英文q 回车
