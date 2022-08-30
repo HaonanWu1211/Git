@@ -24,3 +24,7 @@ git push -f
 
 (6)退出git log状态：
 英文q 回车
+
+(7)git中submodule子模块的使用
+git submodule init
+git submodule update
